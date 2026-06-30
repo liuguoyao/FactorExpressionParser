@@ -1,4 +1,4 @@
-#ifndef FEP_TOKEN_H
+﻿#ifndef FEP_TOKEN_H
 #define FEP_TOKEN_H
 
 #include <string>

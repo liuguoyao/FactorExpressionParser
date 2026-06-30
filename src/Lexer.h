@@ -1,4 +1,4 @@
-#ifndef FEP_LEXER_H
+﻿#ifndef FEP_LEXER_H
 #define FEP_LEXER_H
 
 #include "Token.h"

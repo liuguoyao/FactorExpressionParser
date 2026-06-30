@@ -1,4 +1,4 @@
-#include <catch_amalgamated.hpp>
+﻿#include <catch_amalgamated.hpp>
 
 #include "Lexer.h"
 #include "Parser.h"

@@ -1,4 +1,4 @@
-# FactorExpressionParser
+﻿# FactorExpressionParser
 
 一个纯 C++11 的金融因子表达式解析器。将字符串形式的因子表达式解析为抽象语法树（AST）。
 
