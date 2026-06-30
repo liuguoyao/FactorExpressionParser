@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_library(fep_core STATIC src/fepCore.cpp src/Lexer.cpp src/Parser.cpp)
+add_library(fep_core STATIC src/ast.cpp src/factor_evaluator.cpp src/fepCore.cpp src/Lexer.cpp src/Parser.cpp)
 target_include_directories(fep_core PUBLIC src)
 
 add_executable(fep src/main.cpp)
