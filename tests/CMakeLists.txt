@@ -4,6 +4,7 @@ add_executable(test_fep
     test_lexer.cpp
     test_parser.cpp
     test_eval.cpp
+    test_perf.cpp
     "${CATCH2_DIR}/extras/catch_amalgamated.cpp"
 )
 

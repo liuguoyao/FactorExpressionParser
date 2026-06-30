@@ -2,25 +2,22 @@
 #define FEP_CORE_H
 
 #include <map>
+#include <memory>
 #include <string>
 #include <vector>
 
-/// Parse a factor expression string and return its AST pretty-printed form.
-/// The expression language supports element-wise operators, time-series
-/// functions, and cross-sectional functions over a 3D data array.
-///
-/// Example: fep("rank(ts_mean(close, 5) / delay(close, 10))")
-std::string fep(const std::string& expr);
+using Matrix = std::vector<float>;
+using MatrixPtr = std::shared_ptr<Matrix>;
 
-/// Parse and evaluate a factor expression as a 1-D time series.
+/// Parse and evaluate a factor expression over a 2-D panel of shape T x N
+/// (T time periods, N stocks), stored row-major (t * N + n).
 ///
-/// Each variable in `symbols` is a period of that field, e.g.
-/// {"close": {10.0, 11.0, 9.5, ...}}. Element-wise operators/functions act
-/// point-wise (with numpy-style broadcasting); time-series functions roll a
-/// window along the time axis. Cross-sectional functions throw.
+/// Each variable in `symbols` must have exactly T * N elements.  The returned
+/// MatrixPtr has the same shape.
 ///
 /// Throws std::runtime_error on any lex/parse/eval failure.
-std::vector<double> eval(const std::string& expr,
-                         const std::map<std::string, std::vector<double>>& symbols);
+MatrixPtr eval_panel(const std::string& expr,
+                     const std::map<std::string, MatrixPtr>& symbols,
+                     int T, int N);
 
 #endif // FEP_CORE_H
